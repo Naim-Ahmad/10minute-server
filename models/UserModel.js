@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
     sparse: true,
     validate: {
       validator: function (value) {
-        console.log(value, "value");
         // Validate if the value is either a valid email or phone number
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^(\+88)?01[3-9]\d{8}$/;

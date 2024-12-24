@@ -68,7 +68,6 @@ app.post("/auth/register", async (req, res) => {
   // Regular expressions for validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^(\+88)?01[3-9]\d{8}$/;
-  console.log(identifier, password);
   // Validate identifier (email or phone) and password
   if (
     !identifier ||
@@ -103,8 +102,6 @@ app.post("/auth/register", async (req, res) => {
       identifier,
       password,
     });
-
-    console.log(newUser);
 
     await newUser.save();
     return res.status(201).json({
