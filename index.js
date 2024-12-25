@@ -9,8 +9,15 @@ const app = express();
 require("dotenv").config();
 const port = 3000;
 
-// Middleware to parse JSON request bodies
-app.use([express.json(), cors()]);
+// Middleware
+app.use([
+  express.json(),
+  cors({
+    origin: ["http://localhost:5173", "https://10minute-client.vercel.app"], // Frontend origin
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+]);
 
 app.get("/test", (req, res) => {
   res.json({ message: "server is ok" });
